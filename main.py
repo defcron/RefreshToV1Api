@@ -198,7 +198,7 @@ def oaiGetAccessToken(refresh_token):
 
 
 # ninja获得access_token
-def ninjaGetAccessToken(refresh_token, getAccessTokenUrl):
+def ninjaGetAccessToken(getAccessTokenUrl, refresh_token):
     try:
         logger.info("将通过这个网址请求access_token：" + getAccessTokenUrl)
         headers = {"Authorization": "Bearer " + refresh_token}
