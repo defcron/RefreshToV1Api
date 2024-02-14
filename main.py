@@ -2257,11 +2257,11 @@ def chat_completions():
             logger.info(f"从缓存读取到api_key.........。")
             api_key = refresh_dict.get(api_key)
         else:
+            refresh_token = api_key
             if REFRESH_TOACCESS_ENABLEOAI:
-                refresh_token = api_key
                 api_key = oaiGetAccessToken(api_key)
             else:
-                api_key = ninjaGetAccessToken(REFRESH_TOACCESS_NINJA_REFRESHTOACCESS_URL, api_key)
+                api_key = xyhelperGetAccessToken(REFRESH_TOACCESS_XYHELPER_REFRESHTOACCESS_URL, api_key)
             if not api_key.startswith("eyJhb"):
                 return jsonify({"error": "refresh_token is wrong or refresh_token url is wrong!"}), 401
             add_to_dict(refresh_token, api_key)
@@ -2426,7 +2426,7 @@ def images_generations():
                 refresh_token = api_key
                 api_key = oaiGetAccessToken(api_key)
             else:
-                api_key = ninjaGetAccessToken(REFRESH_TOACCESS_NINJA_REFRESHTOACCESS_URL, api_key)
+                api_key = xyhelperGetAccessToken(REFRESH_TOACCESS_XYHELPER_REFRESHTOACCESS_URL, api_key)
             if not api_key.startswith("eyJhb"):
                 return jsonify({"error": "refresh_token is wrong or refresh_token url is wrong!"}), 401
             add_to_dict(refresh_token, api_key)
@@ -2606,7 +2606,7 @@ def updateRefresh_dict():
             refresh_token = key
             access_token = oaiGetAccessToken(key)
         else:
-            access_token = ninjaGetAccessToken(REFRESH_TOACCESS_NINJA_REFRESHTOACCESS_URL, key)
+            access_token = xyhelperGetAccessToken(REFRESH_TOACCESS_XYHELPER_REFRESHTOACCESS_URL, key)
         if not access_token.startswith("eyJhb"):
             logger.debug("refresh_token is wrong or refresh_token url is wrong!")
             error_num += 1
