@@ -2602,8 +2602,8 @@ def updateRefresh_dict():
     logger.info(f"==========================================")
     logging.info("开始更新access_token.........")
     for key in refresh_dict:
+        refresh_token = key
         if REFRESH_TOACCESS_ENABLEOAI:
-            refresh_token = key
             access_token = oaiGetAccessToken(key)
         else:
             access_token = ninjaGetAccessToken(REFRESH_TOACCESS_NINJA_REFRESHTOACCESS_URL, key)
