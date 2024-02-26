@@ -917,7 +917,7 @@ def send_text_prompt_and_get_response(messages, api_key, stream, model):
                 "force_paragen": False,
                 "force_rate_limit": False
             }
-         elif 'gpt-4-gizmo-' in model:
+        elif 'gpt-4-gizmo-' in model:
             payload = generate_gpts_payload(model, formatted_messages)
             if not payload:
                 global gpts_configurations
