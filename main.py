@@ -319,9 +319,9 @@ scheduler.start()
 # PANDORA_UPLOAD_URL = 'files.pandoranext.com'
 
 
-VERSION = '0.7.7'
+VERSION = '0.7.7.1'
 # VERSION = 'test'
-UPDATE_INFO = '适配ninja'
+UPDATE_INFO = '支持gpt-4-gizmo-XXX，动态配置GPTS'
 # UPDATE_INFO = '【仅供临时测试使用】 '
 
 # 解析响应中的信息
