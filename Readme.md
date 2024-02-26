@@ -184,7 +184,6 @@ PS. 注意，arkose_urls中的地址需要支持PandoraNext的Arkose Token获取
     "messages": [{"role": "user", "content": "你是什么模型"}]
 }
 ```
-```
 
 注意：使用该配置的时候需要保证正确填写 `docker-compose.yml` 的环境变量 `KEY_FOR_GPTS_INFO`，同时该变量设置的 `key` 允许访问所有配置的 GPTS。
 
