@@ -326,16 +326,17 @@ PS. 注意，arkose_urls中的地址需要支持PandoraNext的Arkose Token获取
 
 ## 示例
 
-以ChatGPT-Next-Web项目的docker-compose部署为例，这里提供一个简单的部署配置文件示例：
+以[ChatGPT-Next-Web](https://github.com/Yanyutin753/ChatGPT-Next-Web-LangChain-Gpt-4-All)项目插件版的docker-compose部署为例，支持完全适配项目，这里提供一个简单的部署配置文件示例：
 
 ```
 version: '3'
 services:
   chatgpt-next-web:
-    image: yidadaa/chatgpt-next-web
+    image: yangclivia/chatgpt-next-web-langchain
     ports:
       - "50013:3000"
     environment:
+      - CUSTOM_MODELS=-all,+gpt-3.5-turbo,+gpt-4-s,+gpt-4-mobile,+gpt-4-vision-preview,+gpt-4-gizmo-XXX
       - OPENAI_API_KEY=<正确的refresh_token>
       - BASE_URL=<backend-to-api容器地址>
       - CUSTOM_MODELS=+gpt-4-s,+gpt-4-mobile,+<gpts.json 中的模型名>
@@ -353,17 +354,20 @@ services:
 
 ![api-2](https://github.com/Ink-Osier/PandoraToV1Api/assets/133617214/37c0381f-a70a-42bb-83f1-1491053240b7)
 
+### 读文件
+![api-3](https://github.com/Yanyutin753/xyhelperToV1Api_refresh/assets/132346501/e1f2e770-cd33-4af0-a0c7-5ddabf1c076d)
+
 ### 绘图
 
-![api-3](https://github.com/Ink-Osier/PandoraToV1Api/assets/133617214/8eea9436-12ee-46b1-86c1-67e7e97da83a)
+![api-4](https://github.com/Ink-Osier/PandoraToV1Api/assets/133617214/8eea9436-12ee-46b1-86c1-67e7e97da83a)
 
 ### GPT-4-Mobile
 
-![api-4](https://github.com/Ink-Osier/PandoraToV1Api/assets/133617214/2eb4fd4f-7c66-4a1f-a54a-3c280a36e509)
+![api-5](https://github.com/Ink-Osier/PandoraToV1Api/assets/133617214/2eb4fd4f-7c66-4a1f-a54a-3c280a36e509)
 
 ### GPTS
 
-![api-5](https://github.com/Ink-Osier/PandoraToV1Api/assets/133617214/299df56a-d245-4920-8892-94e1a9cc644a)
+![api-6](https://github.com/Ink-Osier/PandoraToV1Api/assets/133617214/299df56a-d245-4920-8892-94e1a9cc644a)
 
 ### Bot 模式
 
