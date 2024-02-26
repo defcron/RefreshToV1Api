@@ -157,7 +157,9 @@ PS. 注意，arkose_urls中的地址需要支持PandoraNext的Arkose Token获取
 
 ## GPTS配置说明
 
-如果需要使用 GPTS，需要修改 `gpts.json` 文件，其中每个对象的key即为调用对应 GPTS 的时候使用的模型名称，而 `id` 则为对应的模型id，该 `id` 对应每个 GPTS 的链接的后缀。配置多个GPTS的时候用逗号隔开。
+### 使用 GPTS
+
+1. 可修改 `gpts.json` 文件，其中每个对象的key即为调用对应 GPTS 的时候使用的模型名称，而 `id` 则为对应的模型id，该 `id` 对应每个 GPTS 的链接的后缀。配置多个GPTS的时候用逗号隔开。
 
 例如：PandoraNext的官方 GPTS 的链接为：`https://chat.oaifree.com/g/g-CFsXuTRfy-pandoranextzhu-shou`，则该模型的 `id` 的值应为 `g-CFsXuTRfy-pandoranextzhu-shou`，而模型名可以自定义。
 
@@ -172,6 +174,16 @@ PS. 注意，arkose_urls中的地址需要支持PandoraNext的Arkose Token获取
         "id":"g-CFsXuTRfy-pandoranextzhu-shou"
     }
 }
+```
+
+2. 直接请求的时候加上相应的gpt-4-gizmo-XXX
+```json
+{
+    "stream":true,
+    "model":"gpt-4-gizmo-XXXX",
+    "messages": [{"role": "user", "content": "你是什么模型"}]
+}
+```
 ```
 
 注意：使用该配置的时候需要保证正确填写 `docker-compose.yml` 的环境变量 `KEY_FOR_GPTS_INFO`，同时该变量设置的 `key` 允许访问所有配置的 GPTS。
