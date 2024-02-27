@@ -273,15 +273,17 @@ def add_config_to_global_list(base_url, proxy_api_prefix, gpts_data):
             if gizmo_info:
                 redis_client.set(model_id, str(gizmo_info))
                 logger.info(f"Cached gizmo info for {model_name}, {model_id}")
-                # 检查模型名称是否已经在列表中
-                if not any(d['name'] == model_name for d in gpts_configurations):
-                    gpts_configurations.append({
-                        'name': model_name,
-                        'id': model_id,
-                        'config': gizmo_info
-                    })
-                else:
-                    logger.info(f"Model already exists in the list, skipping...")
+                
+        # 检查模型名称是否已经在列表中
+        if gizmo_info and not any(d['name'] == model_name for d in gpts_configurations):
+            gpts_configurations.append({
+                'name': model_name,
+                'id': model_id,
+                'config': gizmo_info
+            })
+        else:
+            logger.info(f"Model already exists in the list, skipping...")
+
 
 
 def generate_gpts_payload(model, messages):
