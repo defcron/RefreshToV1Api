@@ -5,6 +5,7 @@ docker-compose.yml
 log/
 images/
 files/
+redis-data/
 
 data/*
 !data/config.example.json
