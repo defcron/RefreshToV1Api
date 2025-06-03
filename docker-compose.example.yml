@@ -1,0 +1,25 @@
+services:
+  backend-to-api:
+    image: gptenv/refresh-to-v1-api:latest
+    container_name: chatapi
+    restart: always
+    ports:
+      - "50011:33333"
+    volumes:
+      - ./log:/app/log
+      - ./images:/app/images
+      - ./data:/app/data
+      - ./files:/app/files
+    env_file:
+      - ./.env
+      
+  redis:
+    image: redis:alpine
+    container_name: chatapi_redis
+    restart: always
+    environment:
+      - REDIS_PASSWORD=aaaaaaaaa0
+    command: redis-server --appendonly yes
+    volumes:
+      - ./redis-data:/data
+

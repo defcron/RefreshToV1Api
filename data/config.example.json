@@ -18,8 +18,8 @@
     "use_oaiusercontent_url": "false",
     "custom_arkose_url": "false",
     "arkose_urls": "",
-    "upload_success_text": "`🤖 文件上传成功，搜索将不再提供额外信息！`\n",
-    "dalle_prompt_prefix": "请严格根据我的以下要求完成绘图任务，如果我没有发出指定的绘画指令，则绘制出我发出的文字对应的图片：",
+    "upload_success_text": "`🤖 Send successed!，Upload finished！`\n",
+    "dalle_prompt_prefix": "draw a picture，generate an image，paint a png：",
     "bot_mode": {
         "enabled": "false",
         "enabled_markdown_image_output": "false",
@@ -35,7 +35,7 @@
     "redis": {
         "host": "redis",
         "port": 6379,
-        "password": "",
+        "password": "aaaaaaaaa0",
         "db": 0,
         "pool_size": 10,
         "pool_timeout": 60000
