@@ -19,7 +19,7 @@ services:
     restart: always
     environment:
       - REDIS_PASSWORD=aaaaaaaaa0
-    command: redis-server --appendonly yes
+    command: ["redis-server", "--appendonly", "yes", "--requirepass", "aaaaaaaaa0"]
     volumes:
       - ./redis-data:/data
 
