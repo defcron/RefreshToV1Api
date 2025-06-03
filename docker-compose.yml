@@ -1,8 +1,6 @@
-version: '3'
-
 services:
   backend-to-api:
-    image: yangclivia/pandora-to-api
+    image: gptenv/refresh-to-v1-api:latest
     restart: always
     ports:
       - "50011:33333"
@@ -11,11 +9,12 @@ services:
       - ./images:/app/images
       - ./data:/app/data
       - ./files:/app/files
-    environment:
-      - TZ=Asia/Shanghai
+    env_file:
+      - ./.env
       
   redis:
     image: "redis:alpine"
     command: redis-server --appendonly yes
     volumes:
       - ./redis-data:/data
+
